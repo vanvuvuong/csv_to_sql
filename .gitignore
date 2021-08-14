@@ -1,5 +1,7 @@
 # Python test file
 **/**/*test*.*
+**/**/*.csv
+**/**/*.yaml
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,pycharm+all,venv,maven,macos,linux,visualstudio,visualstudiocode,jupyternotebooks,sublimetext
