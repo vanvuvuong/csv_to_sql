@@ -1,5 +1,3 @@
-
-
 class Data(object):
 
 	def __init__(self) -> None:
@@ -11,7 +9,7 @@ class Data(object):
 	def insert(self, session):
 		session.add()
 		session.commit()
-	
+
 	def update(self):
 		pass
 

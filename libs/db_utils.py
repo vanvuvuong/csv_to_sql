@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 import sqlalchemy
 
 
-def init_engine(config_file):
+def init_engine(config_file:str):
 	"""
 		Create a engine to connect to the SQL server
 	"""
@@ -14,14 +14,14 @@ def init_engine(config_file):
 	engine_url = f"mysql+pymysql://{config_data['username']}:{config_data['password']}"\
 					f"@{config_data['host']}/{config_data['database']}"
 	try:
-		engine = sqlalchemy.create_engine(engine_url, encoding='utf-8', echo=True)
+		engine = sqlalchemy.create_engine(engine_url, encoding='utf-8', echo=False)
 		return engine
 	except Exception as errors:
 		print(f"Failed to connect to MySQL: {errors}")
 		return None
 
 
-def init_session(engine):
+def init_session(engine:sqlalchemy.engine):
 	"""
 		Create the session of the engine
 	"""
@@ -31,5 +31,3 @@ def init_session(engine):
 	except Exception as errors:
 		print(f"Failed to init session: {errors}")
 		return None
-
-

@@ -7,7 +7,7 @@ import sqlalchemy
 Base = declarative_base()
 
 
-# THIS CODE USE THE DYNAMIC CLASS
+# THIS CODE USE FOR THE DYNAMIC CLASS
 def init_model_property():
 	return {
 		"__init__": constructor
@@ -25,7 +25,7 @@ def conversion(value, _type):
 	finally:
 		return value
 
-def attach_new_properties(table_name:str, row:list, model_properties:dict):
+def attach_new_properties(table_name:str, row:dict, model_properties:dict):
 	"""
 		Convert the JSON data type to the instance property
 	"""
@@ -33,11 +33,11 @@ def attach_new_properties(table_name:str, row:list, model_properties:dict):
 	unique_id = True
 	for _column in row.keys():
 		if 'id' == _column.lower():
-			model_properties['ID'] = sqlalchemy.Column('ID', sqlalchemy.BigInteger, 
+			model_properties['ID'] = sqlalchemy.Column('ID', sqlalchemy.BigInteger,
 					autoincrement=True, primary_key=True)
 			continue
 		elif unique_id:
-			model_properties['ID'] = sqlalchemy.Column('ID', sqlalchemy.BigInteger, 
+			model_properties['ID'] = sqlalchemy.Column('ID', sqlalchemy.BigInteger,
 					autoincrement=True, primary_key=True)
 			unique_id = False
 

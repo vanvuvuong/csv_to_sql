@@ -6,7 +6,7 @@
 import csv
 import re
 
-def process_data(csv_file, delimiter=",", quotechar='"'):
+def process_data(csv_file:str, delimiter:str, quotechar:str):
 	"""
 		Process the csv file, and convert to JSON type
 
