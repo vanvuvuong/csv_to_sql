@@ -1,29 +1,16 @@
-"""
-	Getting the table name
-	Process the csv data to JSON type data for creating Mapping Instance
-"""
+import pandas as pd
+import re, traceback
 
-import csv
-import re
 
-def process_data(csv_file:str, delimiter:str, quotechar:str):
-	"""
-		Process the csv file, and convert to JSON type
-
-		The default delimiter is `,` you could change them to whatever the delimiter you want
-
-		The default quote character is `"` you could change them to whatever the character you want
-	"""
+def process_data(csv_file, encoding, delimiter, quotechar):
 	_table_name = csv_file.replace('files/', '').split('.csv')[0]
 	_table_name = re.sub('[^a-zA-Z0-9-_]', '', _table_name)
-	with open(csv_file, 'r+', encoding='utf-8', errors='ignore') as file:
-		data = csv.DictReader(file, delimiter=delimiter, skipinitialspace=True, quotechar=quotechar)
-		_csv_data = list()
-		for row in data:
-			_row = dict()
-			for column, column_data in row.items():
-				_row[column] = column_data
-			_csv_data.append(_row)
-		# equal with
-		# csv_data = [{column, column_data for column, column_data in row.items()} for row in csv.DictReader()]
-	return _table_name, _csv_data
+	try:
+		_data_frame = pd.read_csv(csv_file, sep=delimiter, quotechar=quotechar, squeeze=True, engine='c',
+			skipinitialspace=True, na_values='', keep_default_na=False, parse_dates=True,
+			encoding=encoding, warn_bad_lines="warn")
+		return _table_name, _data_frame
+	except Exception as errors:
+		traceback.print_exc()
+		print(f"Error: {errors}")
+		return None, None
