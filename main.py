@@ -1,6 +1,6 @@
 from alive_progress.core.progress import alive_bar
 from libs.db_utils import init_engine
-from libs.process_data import process_data
+from libs.process_data import process_data, pd
 from time import sleep
 from typer import Option
 import sys, typer
@@ -8,13 +8,19 @@ import sys, typer
 app = typer.Typer()
 
 
-def chunker(data_frame, size):
+def chunker(data_frame: pd.DataFrame, size: int):
 	return (data_frame[pos:pos + size] for pos in range(0, len(data_frame), size))
 
 @app.command("import")
-def import_data(csv_file: str, encoding:str = Option('utf-8', "--encode"),
-	delimiter:str = Option(',', "--deli"), quotechar:str = Option('"', "--quote"),
+def import_data(csv_file: str, encoding: str = Option('utf-8', "--encode", prompt="Encoding"),
+	delimiter: str = Option(',', "--deli", prompt="Delimiter:"),
+	quotechar: str = Option('"', "--quote", prompt="Quote character"),
 	config_file: str = "config/config.yaml"):
+
+	"""
+		Process the data with pandas.read_csv and import to database through engine
+	"""
+
 	engine = init_engine(config_file)
 	table_name, data_frame = process_data(csv_file, encoding, delimiter, quotechar)
 	chunksize = int(len(data_frame)/100)
@@ -25,6 +31,7 @@ def import_data(csv_file: str, encoding:str = Option('utf-8', "--encode"),
 			replace = "replace" if index == 0 else "append"
 			cdf.to_sql(table_name, con=engine, if_exists=replace)
 			bar()
+
 	sleep(0.25)
 	print('#########################')
 	sleep(0.5)

@@ -2,7 +2,7 @@ import pandas as pd
 import re, traceback
 
 
-def process_data(csv_file, encoding, delimiter, quotechar):
+def process_data(csv_file: str, encoding: str, delimiter: str, quotechar: str):
 	_table_name = csv_file.replace('files/', '').split('.csv')[0]
 	_table_name = re.sub('[^a-zA-Z0-9-_]', '', _table_name)
 	try:

@@ -3,8 +3,8 @@
 """
 import yaml
 
-def get_config_yaml(config_file):
+def get_config_yaml(config_file: str):
 
 	with open(config_file, 'r+') as file:
-		config_data = yaml.load(file, Loader=yaml.FullLoader)
-	return config_data['mysql']
+		_config_data = yaml.load(file, Loader=yaml.FullLoader)
+	return _config_data['mysql']
