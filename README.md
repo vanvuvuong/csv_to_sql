@@ -16,16 +16,16 @@ pip install -r requirements.txt
 1. Run this script to see command and option:
 
 ```
-python3 main.py --help
+python3 main_cli.py --help
 ```
 
-2. Adjust the `config/config.yaml` to connect to MySQL server
+2. Create the `config/config.yaml` based on `config/config.sample.yaml` to connect to MySQL server
 
 
 3. Copy the csv file to folder `files`
 
 4. Example of running:
 ```
-python3 main.py files/sample.csv
+python3 main_cli.py files/sample.csv
 ```
 After run the scrip, the terminal will ask you to type the `encoding`, `delimiter` and `quotechar`  of the csv files. The default values of them have been set.

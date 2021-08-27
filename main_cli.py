@@ -29,7 +29,7 @@ def import_data(csv_file: str, encoding: str = Option('utf-8', "--encode", promp
 	with alive_bar(int(len(data_frame)/chunksize)) as bar:
 		for index, cdf in enumerate(chunker(data_frame, chunksize)):
 			replace = "replace" if index == 0 else "append"
-			cdf.to_sql(table_name, con=engine, if_exists=replace)
+			cdf.to_sql(table_name, con=engine, if_exists=replace, index_label='index')
 			bar()
 
 	sleep(0.25)
