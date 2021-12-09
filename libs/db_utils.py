@@ -15,10 +15,9 @@ def init_engine(config_file: str):
 	engine_url = f"mysql+pymysql://{config_data['username']}:{config_data['password']}"\
 					f"@{config_data['host']}:{config_data['port']}/{config_data['database']}"
 	try:
-		_engine = sqlalchemy.create_engine(engine_url, encoding='utf-8', echo=False)
-		return _engine
+		return sqlalchemy.create_engine(engine_url, encoding='utf-8', echo=False)
 	except Exception as errors:
-		print(f"Failed to connect to MySQL: {errors}")
+		print(f'Failed to connect to MySQL: {errors}')
 		traceback.print_exc()
 		return None
 
