@@ -1,3 +1,4 @@
+from .logger import logging
 import pandas as pd
 import re, traceback
 
@@ -11,7 +12,15 @@ def process_data(csv_file: str, encoding: str, delimiter: str, quotechar: str):
 			encoding=encoding, warn_bad_lines=True, error_bad_lines=False)
 		_data_frame.index = _data_frame.index + 1
 		return _table_name, _data_frame
+
+	except UnicodeDecodeError as errors:
+		traceback.print_exc()
+		logging.info("---------------------------------")
+		logging.warning(f"The ENCODING ({encoding}) to read the file NOT MATCH with the CSV FILE's ENCODING. Please choose the RIGHT ENCODING ONE.")
+		logging.info("---------------------------------")
+		logging.debug(f"Please Google the errors: {errors}")
+		return None, None
 	except Exception as errors:
 		traceback.print_exc()
-		print(f"Error: {errors}")
+		logging.info(f"Errors: {errors}")
 		return None, None
