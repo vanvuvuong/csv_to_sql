@@ -1,17 +1,13 @@
 from alive_progress.core.progress import alive_bar
+import libs.logger as Logger
 from libs.db_utils import init_engine
 from libs.process_data import process_data, pd
-from libs.logger import logging
 from time import sleep
 from typer import Option
 import sys, typer
 
 app = typer.Typer()
-logging.basicConfig(
-	format='%(asctime)s %(levelname)-8s %(message)s',
-	level=logging.DEBUG,
-	datefmt='%Y-%m-%d %H:%M:%S'
-	)
+logger = Logger.get_instance()
 
 def chunker(data_frame: pd.DataFrame, size: int):
 	return (data_frame[pos:pos + size] for pos in range(0, len(data_frame), size))
@@ -31,7 +27,7 @@ def import_data(csv_file: str,
 	try:
 		table_name, data_frame = process_data(csv_file, encoding, delimiter, quotechar)
 	except Exception as err:
-		logging.debug(f"Exception: {err}")
+		logger.debug(f"Exception: {err}")
 		sys.exit(0)
 	if not table_name or not data_frame:
 		sys.exit(0)
