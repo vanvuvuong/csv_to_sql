@@ -21,6 +21,7 @@ def process_data(csv_file: str, encoding: str, delimiter: str, quotechar: str):
 		logging.debug(f"Please Google the errors: {errors}")
 		return None, None
 	except Exception as errors:
+		logging.info("---------------------------------")
 		traceback.print_exc()
 		logging.info(f"Errors: {errors}")
 		return None, None

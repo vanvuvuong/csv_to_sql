@@ -7,13 +7,18 @@ from typer import Option
 import sys, typer
 
 app = typer.Typer()
-
+logging.basicConfig(
+	format='%(asctime)s %(levelname)-8s %(message)s',
+	level=logging.DEBUG,
+	datefmt='%Y-%m-%d %H:%M:%S'
+	)
 
 def chunker(data_frame: pd.DataFrame, size: int):
 	return (data_frame[pos:pos + size] for pos in range(0, len(data_frame), size))
 
 @app.command("import")
-def import_data(csv_file: str, encoding: str = Option('utf-8', "--encode", prompt="Encoding:"),
+def import_data(csv_file: str,
+	encoding: str = Option('utf-8', "--encode", prompt="Encoding:"),
 	delimiter: str = Option(',', "--deli", prompt="Delimiter:"),
 	quotechar: str = Option('"', "--quote", prompt="Quote character:"),
 	config_file: str = "config/config.yaml"):
@@ -26,8 +31,6 @@ def import_data(csv_file: str, encoding: str = Option('utf-8', "--encode", promp
 	try:
 		table_name, data_frame = process_data(csv_file, encoding, delimiter, quotechar)
 	except Exception as err:
-		logging.info(f"Table Name: {table_name}")
-		logging.info(f"Data Frame: {data_frame}")
 		logging.debug(f"Exception: {err}")
 		sys.exit(0)
 	if not table_name or not data_frame:
@@ -45,6 +48,5 @@ def import_data(csv_file: str, encoding: str = Option('utf-8', "--encode", promp
 	print("Finish import the data")
 	sleep(0.25)
 	print('#########################')
-
 
 app()
