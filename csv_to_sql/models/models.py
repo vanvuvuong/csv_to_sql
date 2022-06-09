@@ -17,7 +17,7 @@ def constructor(self, **kwarg):
 	for key, value in kwarg:
 		self.key = key
 
-def conversion(value, _type):
+def conversion(value:str, _type:str):
 	try:
 		value =	globals()[_type](value)
 	except Exception as errors:

@@ -1,18 +1,7 @@
+CSV TO SQL VERSION 1.1 (USING PANDAS FOR BETTER PERFORMANCE)
+===
+## SETUP THE ENVIRONMENT (GUIDE FOR LINUX ONLY)
 
-LITTLE TOOLS TO IMPORT THE CSV FILE TO SQL IN CLI MANAGER
-====
-# SET UP GUIDE
-
-## ADJUST THE CONFIGURATION
-
-### 1. CHANGE THE `config.sample.yaml` FILE TO `config.yaml` AND CHANGE THE INFO INSIDE
-
-
-
-### 2. CREATE THE VENV TO RUN THE MAIN CODE
-
->- 2.1. FOR LINUX:
-SET UP GUIDE FOR LINUX
 ```
 python3 -m venv venv
 source venv/bin/activate
@@ -20,21 +9,23 @@ pip install -U pip
 pip install -r requirements.txt
 ```
 
->- 2.2. FOR WINDOW
+## GUIDE TO USE THE SCRIPT
+
+### NOTE (THIS TOOL USE FOR MySQL SERVER ONLY):
+
+1. Run this script to see command and option:
+
 ```
+python3 main_cli.py --help
 ```
 
-# USE THE CODE
+2. Create the `config/config.yaml` based on `config/config.sample.yaml` to connect to MySQL server
 
-### 1. WE WILL USE THE `command.py` TO RUN THE SCRIPT
 
->- TO GET HELP:
-```
-python3 command.py --help
-```
+3. Copy the csv file to folder `files`
 
->- TO GET THE SPECIFIC COMMAND HELP:
+4. Example of running:
 ```
-python3 command.py import --help
+python3 main_cli.py files/sample.csv
 ```
-
+After run the scrip, the terminal will ask you to type the `encoding`, `delimiter` and `quotechar`  of the csv files. The default values of them have been set.

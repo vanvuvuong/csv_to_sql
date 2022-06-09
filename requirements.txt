@@ -1,5 +1,0 @@
-PyYAML==5.4.1
-SQLAlchemy==1.4.22
-PyMySQL==1.0.2
-typer==0.3.2
-alive_progress==1.6.2
