@@ -1,0 +1,85 @@
+<h1 id="csv-xml-to-sql-version-0-1-0">CSV, XML TO SQL VERSION 0.1.0</h1>
+<h2 id="setup-the-environment-guide-for-linux-only-">SETUP THE ENVIRONMENT (GUIDE FOR LINUX ONLY)</h2>
+<hr>
+<h3 id="0-install-poetry-">0. Install poetry:</h3>
+<hr>
+<ol>
+    <li>
+        <p>Official Documents:
+            <a
+                href="https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions">https://python-poetry.org/docs/#osx--linux--bashonwindows-install-instructions</a>
+        </p>
+    </li>
+    <li>
+        <p>Or running this command:</p>
+        <pre><code><span class="hljs-string">curl </span>-<span class="hljs-string">sSL </span><span class="hljs-string">https:</span>//<span class="hljs-string">raw.</span><span class="hljs-string">githubusercontent.</span><span class="hljs-string">com/</span><span class="hljs-string">python-poetry/</span><span class="hljs-string">poetry/</span><span class="hljs-string">master/</span><span class="hljs-built_in">get-poetry.py</span> | <span class="hljs-string">python </span>-
+</code></pre>
+    </li>
+    <li>Update poetry virtual environment to in project command:
+        <pre><code>poetry config virtualenvs.<span class="hljs-keyword">in</span>-project <span class="hljs-literal">true</span>
+</code></pre>
+    </li>
+</ol>
+<hr>
+<h3 id="1-install-virtual-environment-">1. Install virtual environment:</h3>
+<hr>
+<ol>
+    <li>
+        <p>Install with poetry:</p>
+        <pre><code>poetry <span class="hljs-keyword">install</span>
+</code></pre>
+    </li>
+    <li>
+        <p>Active the virtual environment:</p>
+        <pre><code><span class="hljs-keyword">source</span> .venv<span class="hljs-regexp">/bin/</span>activate
+</code></pre>
+    </li>
+</ol>
+<hr>
+<h2 id="guide-to-use-the-script">GUIDE TO USE THE SCRIPT</h2>
+<hr>
+<h3 id="note-this-tool-was-tested-for-mysql-server-only-">NOTE (THIS TOOL WAS TESTED FOR MySQL SERVER ONLY):</h3>
+<p>Move to the script folders</p>
+<pre><code><span class="hljs-built_in">cd</span> to_sql
+</code></pre>
+<ol>
+    <li>Run this script to see command and option:</li>
+</ol>
+<pre><code><span class="hljs-keyword">python3</span> main.<span class="hljs-keyword">py</span> --<span class="hljs-keyword">help</span>
+</code></pre>
+<ol>
+    <li>Create the <code>config/config.yaml</code> based on <code>config/config.sample.yaml</code> to connect to MySQL
+        server</li>
+</ol>
+<ol>
+    <li>
+        <p>Copy the files to folder <code>files</code></p>
+    </li>
+    <li>
+        <p>Example of running:</p>
+    </li>
+    <li>
+        <p>Importing 1 csv file sample</p>
+        <pre><code><span class="hljs-keyword">python3</span> main.<span class="hljs-keyword">py</span> csv <span class="hljs-keyword">files</span>/sample.csv
+</code></pre>
+    </li>
+    <li>
+        <p>Importing 2 csv files sample</p>
+        <pre><code>python3 main<span class="hljs-selector-class">.py</span> csv files/sample<span class="hljs-selector-class">.csv</span> files/customers.csv
+</code></pre>
+        <p>After run the scrip, the terminal will ask you to type the <code>encoding</code>, <code>delimiter</code> and
+            <code>quotechar</code> of the csv files. The default values of them have been set.</p>
+    </li>
+    <li>
+        <p>Importing 1 xml file sample</p>
+        <pre><code><span class="hljs-keyword">python3</span> main.<span class="hljs-keyword">py</span> csv <span class="hljs-keyword">files</span>/sample.xml
+</code></pre>
+    </li>
+    <li>
+        <p>Importing 2 xml files sample</p>
+        <pre><code>python3 main.py <span class="hljs-keyword">xml</span> <span class="hljs-title">files</span>/sample.<span class="hljs-keyword">xml</span> <span class="hljs-title">files</span>/products.xml
+</code></pre>
+        <p>After run the scrip, the terminal will ask you to type the <code>encoding</code>, <code>parse_type</code> of
+            the xml files. The default values of them have been set.</p>
+    </li>
+</ol>
