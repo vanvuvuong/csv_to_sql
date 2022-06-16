@@ -53,7 +53,7 @@ After run the scrip, the terminal will ask you to type the `encoding`, `delimite
 
 - Importing 1 xml file sample
 ```
-py main.py csv files/sample.xml
+py main.py xml files/sample.xml
 ```
 
 - Importing 2 xml files sample
