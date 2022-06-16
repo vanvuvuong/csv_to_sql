@@ -1,5 +1,5 @@
-from to_sql.app.common import core_app, multiple_file
-import to_sql.libs.logger as Logger
+from app.common import core_app, multiple_file
+import libs.logger as Logger
 from typing import Tuple, Union
 import click
 
