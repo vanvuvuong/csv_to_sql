@@ -1,4 +1,4 @@
-import to_sql.libs.logger as Logger
+import libs.logger as Logger
 import re, traceback
 from time import time_ns
 from typing import Optional, Tuple

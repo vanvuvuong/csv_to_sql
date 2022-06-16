@@ -1,7 +1,7 @@
-from to_sql.libs.process_data import create_table_name, csv_to_frame, xml_to_frame
-from to_sql.libs.db_utils import init_engine
-from to_sql.libs.process_data import pd
-import to_sql.libs.logger as Logger
+from libs.process_data import create_table_name, csv_to_frame, xml_to_frame
+from libs.db_utils import init_engine
+from libs.process_data import pd
+import libs.logger as Logger
 from alive_progress.core.progress import alive_bar
 from time import sleep
 
