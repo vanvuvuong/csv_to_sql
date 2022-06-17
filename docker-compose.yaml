@@ -20,14 +20,16 @@ services:
             dockerfile: dockerfiles/Dockerfile
         container_name: app
         environment:
-            - DB_HOST=${mysql_host}
-            - DB_USER=${mysql_user}
-            - DB_PASSWORD=${mysql_root_password}
-            - DB_DATABASE=${mysql_database}
+            - mysql_host=${mysql_host}
+            - mysql_user=${mysql_user}
+            - mysql_root_password=${mysql_root_password}
+            - mysql_database=${mysql_database}
         networks:
             - to_sql
         volumes:
             - ./to_sql:/app/to_sql
+            - ./files:/app/files
+            - ./main.py:/app/main.py
             - ./pyproject.toml:/app/pyproject.toml
             - ./poetry.lock:/app/poetry.lock
             - ./tests:/app/tests
