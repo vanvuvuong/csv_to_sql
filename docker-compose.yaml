@@ -28,6 +28,8 @@ services:
             - to_sql
         volumes:
             - ./to_sql:/app/to_sql
+            - ./files:/app/files
+            - ./main.py:/app/main.py
             - ./pyproject.toml:/app/pyproject.toml
             - ./poetry.lock:/app/poetry.lock
             - ./tests:/app/tests
