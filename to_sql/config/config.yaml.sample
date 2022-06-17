@@ -3,5 +3,5 @@ sql_adapter: pymysql
 mysql_user: user
 mysql_root_password: password
 mysql_host: database
-mysql_port: 3306
+mysql_local_port: 3306
 mysql_database: to_sql
