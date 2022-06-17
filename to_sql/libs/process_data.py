@@ -8,7 +8,7 @@ import pandas as pd
 logger = Logger.get_instance()
 
 def create_table_name(file: str) -> Tuple[str, str]:
-    _table_name = f"{re.sub('[^a-zA-Z0-9-_]', '', file.replace('files/', '').split('.')[0])}_{str(time_ns())[-5:]}"
+    _table_name = f"{re.sub('[^a-zA-Z0-9-_]', '', file.split('/')[-1].split('.')[0])}_{str(time_ns())[-5:]}"
     _file_extension = file.split('.')[-1]
     assert _file_extension in {'csv', 'xml'}
     return _table_name, _file_extension

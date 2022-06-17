@@ -4,10 +4,11 @@ def get_config_yaml():
     file = 'to_sql/config/config.yaml'
     expected_config = {
         "server": "mysql",
-        "username": "root",
-        "password": "aA123456",
-        "host": "localhost",
-        "port": "3306",
-        "database": "csv"
+        "mysql_user": "user",
+        "mysql_root_password": "password",
+        "mysql_host": "localhost",
+        "mysql_local_port": "3306",
+        "mysql_database": "to_sql"
     }
+    print(get_config_yaml(file))
     assert expected_config == get_config_yaml(file)
