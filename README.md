@@ -5,24 +5,25 @@ Requirement:
 ---
  - Docker & docker-compose. Please view the official documentations to install it: https://docs.docker.com/get-docker/
  - Create the `.env` & `to_sql/config/config.yaml` files
+ - Know how to use `docker` & `docker-composer`
 ---
-### 1. Start the stack:
+### Start the docker-compose:
 ---
 ```
 docker-compose up -d
 ```
-### 2. Start the stack & rebuild the image:
+### Start the docker-compose & rebuild the image:
 ---
 ```
 docker-compose up --build -d
 ```
-### 3. Stop the stack:
+### Stop the docker-compose:
 ---
 ```
 docker-compose down
 ```
 
-## GUIDE TO USE THE SCRIPT
+## GUIDE TO USE THE SCRIPT (Keep the `container` alive to run the script)
 ---
 1. Let get into the container:
 ```
