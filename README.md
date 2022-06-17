@@ -29,17 +29,13 @@ docker-compose down
 ```
 docker container exec -it app /bin/bash
 ```
-2. Move to the script folders:
-```
-cd to_sql
-```
-3. Run this script to see command and option:
+2. Run this script to see command and option:
 ```
 py main.py --help
 ```
-4. Copy the files to folder `files` to get them ready to run
+3. Copy the files to folder `files` to get them ready to run
 
-5. Example of running:
+4. Example of running:
 
 - Importing 1 csv file sample
 ```

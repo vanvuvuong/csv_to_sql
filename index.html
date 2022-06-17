@@ -26,15 +26,15 @@
         <li>Know how to use <code>docker</code> and <code>docker-composer</code></li>
     </ul>
     <hr>
-    <h3 id="1-start-the-stack-">Start the docker-composer:</h3>
+    <h3 id="start-the-stack-">Start the docker-composer:</h3>
     <hr>
     <pre><code>docker-compose up <span class="hljs-_">-d</span>
 </code></pre>
-    <h3 id="2-start-the-stack-rebuild-the-image-">Start the docker-composer & rebuild the image:</h3>
+    <h3 id="start-the-stack-rebuild-the-image-">Start the docker-composer & rebuild the image:</h3>
     <hr>
     <pre><code>docker-compose up <span class="hljs-comment">--build -d</span>
 </code></pre>
-    <h3 id="3-stop-the-stack-">Stop the docker-composer:</h3>
+    <h3 id="stop-the-stack-">Stop the docker-composer:</h3>
     <hr>
     <pre><code><span class="hljs-attribute">docker-compose down</span>
 </code></pre>
@@ -44,10 +44,6 @@
     <ol>
         <li>Let get into the container:
             <pre><code>docker <span class="hljs-keyword">container</span> <span class="hljs-keyword">exec</span> -it app /bin/bash
-</code></pre>
-        </li>
-        <li>Move to the script folders:
-            <pre><code><span class="hljs-built_in">cd</span> to_sql
 </code></pre>
         </li>
         <li>Run this script to see command and option:
