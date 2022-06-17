@@ -32,7 +32,7 @@ def csv(files: Union[str, Tuple[str]], encoding: str, delimiter: str, quotechar:
 @click.argument("files", nargs=-1, type=click.Path(exists=True))
 @click.option("--encoding", default="utf-8", prompt="Encoding:")
 @click.option("--parser", default="lxml", prompt="Parser mode:")
-def xml(files: Union[str, Tuple[str]], encoding: str, parser: str = "lxml", config_file: str = "config/config.yaml"):
+def xml(files: Union[str, Tuple[str]], encoding: str, parser: str = "lxml", config_file: str = CONFIG_FILE_PATH):
     kwargs = {
         "files": files,
         "encoding": encoding,
