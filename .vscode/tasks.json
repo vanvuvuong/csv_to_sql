@@ -2,26 +2,32 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Start Docker Compose",
+            "label": "Dev: Start Docker Compose",
             "command": "docker-compose up -d",
             "type": "shell",
             "args": []
         },
         {
-            "label": "Start Docker Compose & Rebuild Images",
+            "label": "Dev: Start Docker Compose & Rebuild Images",
             "command": "docker-compose up -d --build",
             "type": "shell",
             "args": []
         },
         {
-            "label": "Stop Docker Compose",
+            "label": "Dev: Stop Docker Compose",
             "command": "docker-compose down",
             "type": "shell",
             "args": []
         },
         {
-            "label": "Remove all the Docker Containers & Images",
+            "label": "Dev: Remove all the Docker Containers & Images",
             "command": "docker system prune",
+            "type": "shell",
+            "args": []
+        },
+        {
+            "label": "Dev: Start Unittest",
+            "command": "docker container exec app /bin/bash -c \"poetry run python -m pytest --cov=to_sql\"",
             "type": "shell",
             "args": []
         }
