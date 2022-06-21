@@ -30,6 +30,12 @@
             "command": "docker container exec app /bin/bash -c \"poetry run python -m pytest --cov=to_sql\"",
             "type": "shell",
             "args": []
-        }
+        },
+        {
+            "label": "Dev: Export cProfile report",
+            "command": "docker container exec app /bin/bash -c \"poetry run python -m cProfile -o cProfile/report.out main.py csv files/sample.csv && poetry run python -m pyprof2calltree -i cProfile/report.out -o cProfile/report.log\"",
+            "type": "shell",
+            "args": []
+        },
     ]
 }

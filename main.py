@@ -12,9 +12,9 @@ def main(log_level: str = "info"):
 
 @main.command()
 @click.argument("files", nargs=-1, type=click.Path(exists=True))
-@click.option("--encoding", default="utf-8", prompt="Encoding:")
-@click.option("--delimiter", default=",", prompt="Delimiter:")
-@click.option("--quotechar", default="\"", prompt="Quote character:")
+@click.option("--encoding", default="utf-8") #, prompt="Encoding:")
+@click.option("--delimiter", default=",") #, prompt="Delimiter:")
+@click.option("--quotechar", default="\"") #, prompt="Quote character:")
 def csv(files: Union[str, Tuple[str]], encoding: str, delimiter: str, quotechar: str, config_file: str = CONFIG_FILE_PATH):
     kwargs = {
         "files": files,

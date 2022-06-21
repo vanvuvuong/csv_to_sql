@@ -33,6 +33,7 @@ services:
             - ./pyproject.toml:/app/pyproject.toml
             - ./poetry.lock:/app/poetry.lock
             - ./tests:/app/tests
+            - ./cProfile:/app/cProfile
         restart: "no"
         depends_on:
             - mysql
